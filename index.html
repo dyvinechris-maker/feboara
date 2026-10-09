@@ -16,22 +16,80 @@
     color:#F2883B !important;
     background:transparent !important;
 }
+/* =========================================
+   NAVBAR - TABLET & MOBILE
+========================================= */
+
+/* Hide the long tagline before it collides with the menu */
+@media (max-width: 991px) {
+    .brand-tagline {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    /* 10% side padding wastes too much room on a phone */
+    .navbar-wrap {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .brand-logo {
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+    .brand-name {
+        font-size: 22px !important;
+        letter-spacing: .5px !important;
+    }
+
+    .brand-sub {
+        font-size: 11px !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Mobile menu: stack the links and give them room to tap */
+    #myNavbar {
+        background: #ffffff;
+        border-top: 1px solid rgba(11, 42, 89, 0.08);
+    }
+
+    #myNavbar .navbar-nav {
+        padding: 10px 0 !important;
+        margin: 0;
+    }
+
+    #myNavbar .navbar-nav > li > a {
+        padding: 14px 15px;
+    }
+
+    /* Quote button: full width inside the dropdown */
+    #myNavbar .navbar-right {
+        float: none !important;
+        margin: 0 15px 15px;
+    }
+
+    #myNavbar .navbar-right > li > a {
+        margin-top: 0 !important;
+        text-align: center;
+    }
+}
 
 .hero-section{
     position:relative;
     width:100%;
     height:100vh;
-    min-height:600px;
+    min-height:100vh;
+     padding:130px 0 70px; 
 
     background-image:url("./assets/hero-section.png");
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
-
     display:flex;
     align-items:center;
-   
-
     overflow:hidden;
 }
 
@@ -155,34 +213,35 @@
    MOBILE
 ========================= */
 
-@media(max-width:768px){
+@media (max-width: 768px){
 
     .hero-section{
-         width:100%;
-    height:100vh;
-    min-height:500px;
+        min-height:100vh;
+        min-height:100svh;
+        padding:120px 0 60px;
     }
 
     .hero-content{
+        padding:0 20px;
         text-align:center;
     }
 
     .hero-subtitle{
-        font-size:20px;
+        font-size:14px;
         letter-spacing:2px;
-        margin-bottom:15px;
+        margin-bottom:14px;
     }
 
     .hero-content h1{
-        font-size:40px;
-        line-height:1.2;
-        margin-bottom:20px;
+        font-size:32px;
+        line-height:1.25;
+        margin-bottom:18px;
     }
 
     .hero-description{
-        font-size:25px;
+        font-size:17px;
         line-height:1.7;
-        margin-bottom:30px;
+        margin-bottom:28px;
     }
 
     .hero-buttons{
@@ -192,9 +251,14 @@
     }
 
     .hero-btn{
-        width:220px;
+        width:240px;
         text-align:center;
     }
+}
+
+@media (max-width: 400px){
+    .hero-content h1{ font-size:28px; }
+    .hero-description{ font-size:16px; }
 }
 /* =========================
    ABOUT SECTION
@@ -1289,7 +1353,7 @@ style="
     margin:0;
 ">
 
-    <div class="container-fluid" style="padding-left:10%; padding-right:10%;">
+    <div class="container-fluid navbar-wrap" style="padding-left:10%; padding-right:10%;">
 
         <!-- BRAND / LOGO -->
         <div class="navbar-header">
@@ -1316,6 +1380,7 @@ style="
 
                 <!-- Logo -->
                 <img src="./assets/logo-removebg.png"
+                class="brand-logo"
                      alt="FEBOARA Logo"
                      style="
                         width:75px;
@@ -1335,7 +1400,8 @@ style="
                         font-size:28px;
                         font-weight:800;
                         letter-spacing:1px;
-                    ">
+                    
+                    "class="brand-name">
                         FEBOARA
                     </h2>
 
@@ -1344,7 +1410,7 @@ style="
                         color:#666;
                         font-size:13px;
                         letter-spacing:1.5px;
-                    ">
+                    "class="brand-sub">
                         COMPANY LIMITED
                     </p>
 
@@ -1355,7 +1421,7 @@ style="
                         font-size:10px;
                         letter-spacing:.5px;
                         white-space:nowrap;
-                    ">
+                    "class="brand-tagline">
                         AUTOMOBILE IMPORT & ELECTRICAL ENGINEERING SOLUTIONS
                     </span>
 
