@@ -1242,6 +1242,35 @@ html {
 
     .footer-container { grid-template-columns: 1fr; gap: 32px; }
 }
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+/* Hidden only when JavaScript is running, so content never disappears if JS fails */
+.js .reveal {
+    opacity: 0;
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    animation: revealIn 1.2s cubic-bezier(0.22, 0.7, 0.3, 1) backwards;
+    animation-delay: var(--reveal-delay, 0s);
+}
+
+@keyframes revealIn {
+    from {
+        opacity: 0;
+        transform: var(--reveal-from, translateY(40px));
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Direction variants */
+.reveal-left  { --reveal-from: translateX(-50px); }
+.reveal-right { --reveal-from: translateX(50px); }
 </style>
 </head>
 <body style="margin:0; padding:0; font-family:Playfair Display, serif;background-color: #ecf1f3;">
@@ -1939,22 +1968,56 @@ style="
 </footer>
 
 <script>
-window.addEventListener("scroll", function() {
+(function () {
 
-    var cards = document.querySelectorAll(".about");
+    // Respect visitors who turn animations off, and skip very old browsers
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
 
-    cards.forEach(function(card) {
+    document.documentElement.classList.add("js");
 
-        var cardPosition = card.getBoundingClientRect().top;
-        var screenPosition = window.innerHeight - 100;
+    // Which elements animate, and from which direction
+    var groups = [
+        { direction: "up", selector: [
+            ".hero-content > *",
+            ".about-header", ".about-line",
+            ".purpose-card-mission", ".purpose-card-vision",
+            ".why-choose-header", ".why-card",
+            ".core-values-header", ".service-card",
+            ".section-heading", ".process-step",
+            ".cta-text", ".cta-buttons",
+            ".contact-item", ".contact-form",
+            ".footer-brand", ".footer-col"
+        ].join(",") },
+        { direction: "left",  selector: ".about-image-wrap" },
+        { direction: "right", selector: ".about-content, .why-choose-image" }
+    ];
 
-        if (cardPosition < screenPosition) {
-            card.classList.add("visible");
-        }
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);   // animate once only
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
 
+    groups.forEach(function (group) {
+        document.querySelectorAll(group.selector).forEach(function (el) {
+            el.classList.add("reveal");
+
+            if (group.direction === "left")  el.classList.add("reveal-left");
+            if (group.direction === "right") el.classList.add("reveal-right");
+
+            // Stagger siblings (cards in the same row arrive one after another)
+            var position = Array.prototype.indexOf.call(el.parentNode.children, el);
+            el.style.setProperty("--reveal-delay", (position % 4) * 0.12 + "s");
+
+            observer.observe(el);
+        });
     });
 
-});
+})();
 </script>
 </body>
 </html>
