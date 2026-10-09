@@ -9,6 +9,9 @@
     <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
     <title>Feboara Company LTD - Professional Automobile Import & Electrical Engineering Solutions</title>
     <style>
 
@@ -16,11 +19,9 @@
     color:#F2883B !important;
     background:transparent !important;
 }
-/* =========================================
-   NAVBAR - TABLET & MOBILE
-========================================= */
+body { overflow-x: hidden; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-/* Hide the long tagline before it collides with the menu */
 @media (max-width: 991px) {
     .brand-tagline {
         display: none !important;
@@ -28,8 +29,6 @@
 }
 
 @media (max-width: 767px) {
-
-    /* 10% side padding wastes too much room on a phone */
     .navbar-wrap {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -78,11 +77,10 @@
 .hero-section{
     position:relative;
     width:100%;
-    height:100vh;
     min-height:100vh;
+     min-height:100svh;
      padding:130px 0 70px; 
-
-    background-image:url("./assets/hero-section.png");
+    background-image:url("./assets/hero-section.jpg");
     background-size:cover;
     background-position:center center;
     background-repeat:no-repeat;
@@ -445,6 +443,7 @@
 }
 .services {
   padding: 80px 20px;
+  background: #fff;
 }
 
 .services-grid {
@@ -461,6 +460,7 @@
   }
     
 }
+
 .service-card {
   display: flex;
   flex-direction: column;
@@ -469,6 +469,7 @@
   overflow: hidden;
   box-shadow: 0 6px 24px rgba(15, 23, 42, 0.10);
   transition: transform .3s ease, box-shadow .3s ease;
+  border: 1px solid rgba(11,42,89,.06);
 }
 
 .service-card:hover {
@@ -559,23 +560,6 @@
   border-radius: 50%;
   background: #F2883B; 
 }
-/* TABLET */
-@media (max-width: 991px) {
-    .core-values-row {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 30px;
-    }
-}
-/* MOBILE */
-@media (max-width: 767px) {
-    .core-values {
-        padding: 45px 18px 65px;
-    }
-    .core-values-header {
-        font-size: 28px;
-    }
-    
-}
 
 .purpose-container {
     width: 100%;
@@ -627,21 +611,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 64px;
-    height: 64px;
-    margin: 0 0 26px;
-    border-radius: 18px;
-    font-size: 26px;
-}
-
-.purpose-icon {
-    width: auto;
-    height: auto;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
     font-size: 40px;
     background: none;
     box-shadow: none;
-}
+} 
 
 .purpose-card-mission .purpose-icon { color: #ffffff; }
 .purpose-card-vision .purpose-icon  { color: #0B2A59; }
@@ -703,67 +677,19 @@
     .purpose-card-mission,
     .purpose-card-vision { padding: 30px 24px; }
 
-    .purpose-icon {
-        width: 56px;
-        height: 56px;
-        margin-bottom: 20px;
-        font-size: 23px;
-    }
+    .purpose-icon { margin-bottom: 16px; font-size: 32px; }
 
     .purpose-card-mission h3,
     .purpose-card-vision h3 { font-size: 23px; }
 }
-@media (max-width: 991px) {
 
-    .purpose-container {
-        padding: 50px 30px 70px;
-    }
-
-    .purpose-row {
-        gap: 25px;
-    }
-
-    .purpose-card-mission,
-    .purpose-card-vision {
-        padding: 30px 25px;
-    }
-
-}
-@media (max-width: 767px) {
-
-    .purpose-container {
-        padding: 40px 18px 60px;
-    }
-
-    .purpose-row {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    .purpose-card-mission,
-    .purpose-card-vision {
-        padding: 30px 22px;
-    }
-
-    .purpose-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 27px;
-    }
-
-    .purpose-card-mission h3,
-    .purpose-card-vision h3 {
-        font-size: 23px;
-    }
-
-}
 /* =========================================
    WHY CHOOSE FEBOARA
 ========================================= */
 
 .why-choose {
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 20px 90px;
     background: linear-gradient(
         135deg,
         #ecf1f3 0%,
@@ -824,6 +750,7 @@
     transition: transform 0.4s ease,
                 box-shadow 0.4s ease,
                 background 0.4s ease;
+                border-radius: 16px;
 }
 
 .why-card:hover {
@@ -895,6 +822,7 @@
     height: 100%;
     min-height: 525px;
     overflow: hidden;
+    border-radius: 16px;
 }
 
 .why-choose-image img {
@@ -976,9 +904,7 @@
     }
 
 }
-html {
-    scroll-behavior: smooth;
-}
+
 
 #services {
     scroll-margin-top: 50px;
@@ -1265,11 +1191,15 @@ html {
     margin: 0 auto;
     padding: 22px 0;
     border-top: 1px solid rgba(255,255,255,0.12);
-    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
     font-size: 14px;
     color: rgba(255,255,255,0.6);
 }
-
+.footer-legal a { margin-left: 18px; color: rgba(255,255,255,0.7); text-decoration: none; }
+.footer-legal a:hover { color: #F2883B; }
 
 /* =========================================
    RESPONSIVE
@@ -1333,6 +1263,9 @@ html {
 /* Direction variants */
 .reveal-left  { --reveal-from: translateX(-50px); }
 .reveal-right { --reveal-from: translateX(50px); }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
 </style>
 </head>
 <body style="margin:0; padding:0; font-family:Playfair Display, serif;background-color: #ecf1f3;">
@@ -1439,12 +1372,12 @@ style="
                     <a href="#home" style="font-weight: 800; font-size: 16px; color: #0B2A59;">HOME</a>
                 </li>
 
-                <li>
-                    <a href="#about" style="font-weight: 800; font-size: 16px; color: #0B2A59;">ABOUT</a>
+                 <li>
+                    <a href="#services" style="font-weight: 800; font-size: 16px; color: #0B2A59;">SERVICES</a>
                 </li>
 
                 <li>
-                    <a href="#services" style="font-weight: 800; font-size: 16px; color: #0B2A59;">SERVICES</a>
+                    <a href="#about" style="font-weight: 800; font-size: 16px; color: #0B2A59;">ABOUT</a>
                 </li>
 
                 <li>
@@ -1517,28 +1450,17 @@ style="
 
 </section>
 <!------CORE SERVICES-->
-<section class="container" id="services">
-
-    <div class="core-values">
-        
-        <h2 class="core-values-header"
-        style="color:#0B2A59; font-size: 32px; 
-        font-weight: 700; text-align:center; margin-top: 70px;"
-         >Our Core Services</h2>
-
-          <span class="about-line"></span>
-
-
-        <div class="core-values-row">
-
-           <section class="services">
-  <div class="services-grid">
-
-    <div class="service-card">
-      <div class="service-image">
-        <img src="./assets/cars.jpg" alt="Automobile Importation">
-        <i class="fas fa-car-side service-icon"></i>
-      </div>
+<section class="services" id="services">
+    <div class="section-heading">
+        <h2>Our Core Services</h2>
+        <span class="section-line"></span>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-image">
+                <img src="./assets/cars.jpg" alt="Automobile Importation" loading="lazy" decoding="async">
+                <i class="fas fa-car-side service-icon"></i>
+            </div>
       <div class="service-content">
         <h3 class="service-heading">Automobile Importation</h3>
         <p>We source and deliver quality vehicles to meet your transportation and mobility needs.</p>
@@ -1553,7 +1475,7 @@ style="
 
     <div class="service-card">
       <div class="service-image">
-        <img src="./assets/electrical.jpg" alt="Electrical Installation">
+        <img src="./assets/electrical.jpg" alt="Electrical Installation" loading="lazy" decoding="async">
         <i class="fas fa-bolt service-icon"></i>
       </div>
       <div class="service-content">
@@ -1570,7 +1492,7 @@ style="
 
     <div class="service-card">
       <div class="service-image">
-        <img src="./assets/materials.webp" alt="Electrical Materials">
+        <img src="./assets/materials.webp" alt="Electrical Materials" loading="lazy" decoding="async">
         <i class="fas fa-plug service-icon"></i>
       </div>
       <div class="service-content">
@@ -1588,12 +1510,6 @@ style="
   </div>
 </section>
 
-        </div>
-
-    </div>
-
-
-</section>
 
 <!-- ABOUT SECTION -->
 <section class="about" id="about">
@@ -1616,7 +1532,7 @@ style="
                 <img
                     src="./assets/about.jpg"
                     alt="Feboara Company LTD"
-                    class="about-image"
+                    class="about-image" loading="lazy" decoding="async"
                 >
 
             </div>
@@ -1779,23 +1695,23 @@ style="
 
 
                 <!-- 04 -->
-                <div class="why-card" style="background-color: #0B2A59;">
+                <div class="why-card featured">
 
                     <div class="why-card-top">
 
-                        <span class="why-number" style="color: #ffffff;">
+                        <span class="why-number">
                             04
                         </span>
 
-                        <span class="why-number-line" style="background-color: white;"></span>
+                        <span class="why-number-line"></span>
 
                     </div>
 
-                    <h3 style="color: #ffffff;">
+                    <h3>
                         Customer Focus
                     </h3>
 
-                    <p style="color: rgba(255, 255, 255, 0.90);">
+                    <p>
                         We listen to our clients' requirements
                         and work toward solutions that deliver
                         lasting value.
@@ -1811,8 +1727,11 @@ style="
             <div class="why-choose-image">
 
                 <img
+
                     src="./assets/choose-us.jpg"
                     alt="Feboara professional automobile and electrical solutions"
+                    loading="lazy"
+                    decoding="async"
                 >
 
             </div>
@@ -1879,7 +1798,7 @@ style="
 
         <div class="cta-buttons">
             <a href="#contact" class="cta-btn cta-btn-primary">REQUEST A QUOTE</a>
-            <a href="https://wa.me/2348000000000" target="_blank" rel="noopener" class="cta-btn cta-btn-outline">
+            <a href="https://wa.me/2348130130891" target="_blank" rel="noopener" class="cta-btn cta-btn-outline">
                 <i class="fab fa-whatsapp"></i> CHAT ON WHATSAPP
             </a>
         </div>
@@ -1906,7 +1825,7 @@ style="
                     <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
                     <div>
                         <h4>Phone</h4>
-                        <a href="tel:+2348000000000">+234 800 000 0000</a>
+                        <a href="tel:+2348130130891">+234 813 013 0891</a>
                     </div>
                 </div>
 
@@ -2003,8 +1922,8 @@ style="
             <h4>Quick Links</h4>
             <ul>
                 <li><a href="#home">Home</a></li>
+                  <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
                 <li><a href="#process">How We Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -2013,7 +1932,7 @@ style="
         <div class="footer-col">
             <h4>Contact</h4>
             <ul class="footer-contact">
-                <li><i class="fas fa-phone"></i><a href="tel:+2348000000000">+234 800 000 0000</a></li>
+                <li><i class="fas fa-phone"></i><a href="tel:+2348130130891">+234 813 013 0891</a></li>
                 <li><i class="fas fa-envelope"></i><a href="mailto:info@feboara.com">info@feboara.com</a></li>
                 <li><i class="fas fa-location-dot"></i><span>4 Obafemi Awolowo Way, Ikeja, Lagos</span></li>
             </ul>
@@ -2021,13 +1940,13 @@ style="
 
     </div>
 
-    <div class="footer-bottom">
-        &copy; 2026 Feboara Company Limited. All rights reserved.
-        <span style="float:right;">
-               <a href="https://www.feboara.com/#">Privacy Policy</a>
-       <a href="https://www.feboara.com/#">Terms of Service</a>
-        </span>
-    </div>
+   <div class="footer-bottom">
+    <span>&copy; 2026 Feboara Company Limited. All rights reserved.</span>
+    <span class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </span>
+</div>
 
 </footer>
 
@@ -2047,7 +1966,6 @@ style="
             ".about-header", ".about-line",
             ".purpose-card-mission", ".purpose-card-vision",
             ".why-choose-header", ".why-card",
-            ".core-values-header", ".service-card",
             ".section-heading", ".process-step",
             ".cta-text", ".cta-buttons",
             ".contact-item", ".contact-form",
@@ -2082,6 +2000,25 @@ style="
     });
 
 })();
+// Contact form -> WhatsApp
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var message =
+        "Hello Feboara, my name is " + document.getElementById("cfName").value + ".\n" +
+        "Phone: " + document.getElementById("cfPhone").value + "\n" +
+        "Service: " + document.getElementById("cfService").value + "\n\n" +
+        document.getElementById("cfMessage").value;
+    window.open("https://wa.me/2348130130891?text=" + encodeURIComponent(message), "_blank");
+});
+
+// Close the mobile menu after tapping a link
+document.querySelectorAll("#myNavbar a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        if (document.getElementById("myNavbar").classList.contains("in")) {
+            document.querySelector(".navbar-toggle").click();
+        }
+    });
+});
 </script>
 </body>
 </html>
